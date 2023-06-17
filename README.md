@@ -61,8 +61,9 @@ To identify a contact, send an HTTP POST request to the `/identify` endpoint wit
 - The secondaryContactIds field contains an array of contact IDs that are secondary to the primary contact.
  
 ## Project Structure
- 
- ├── src
+
+```
+├── src
 │   ├── main
 │   │   ├── java/com/example/contact
 │   │   │   ├── controller
@@ -82,6 +83,7 @@ To identify a contact, send an HTTP POST request to the `/identify` endpoint wit
 │           └── service
 │               └── ApplicatioTests.java
 └── pom.xml
+```
 
 - The controller package contains the ContactController class responsible for handling HTTP requests and responses.
 - The dao package contains the Contact class representing the contact entity.
