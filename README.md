@@ -91,3 +91,30 @@ To identify a contact, send an HTTP POST request to the `/identify` endpoint wit
 - The services package contains the ContactService interface and its implementation class ContactServiceImpl for managing contact operations.
 - The Application class in the root package is the entry point of the application.
 - The application.yml file in the resources directory contains the database configuration.
+
+## Service Implementation
+
+The service implementation is divided into two parts: the service interface and its implementation class.
+
+### ContactService Interface
+
+The ContactService interface defines the contract for managing contact operations. It declares methods for identifying and retrieving contact information.
+
+### ContactServiceImpl Class
+
+The ContactServiceImpl class is the implementation of the ContactService interface. It provides the logic for identifying and managing contacts.
+Identification Logic
+
+The identification logic is implemented in the identifyContact method. Here's a step-by-step explanation of the identification process:
+
+- The method receives a ContactRequest object containing the email and phoneNumber fields from the incoming request.
+- First, it checks if a contact with the given email or phoneNumber already exists in the database. It uses the ContactRepository to perform the database query.
+- If a contact is found, it is considered the primary contact. The primary contact's ID, email, and phoneNumber are added to the response.
+- Next, the method checks if any other contacts with the same email or phoneNumber exist in the database.
+- If secondary contacts are found, their IDs are added to the response's secondaryContactIds array.
+- Finally, the response is returned with the consolidated contact information.
+
+## Database Operations
+
+- The service uses the ContactRepository interface for interacting with the database. The repository interface extends the JpaRepository interface, which provides convenient methods for performing CRUD operations.
+- The service implementation uses the repository to query and manipulate contact data in the database.
