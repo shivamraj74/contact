@@ -81,7 +81,7 @@ To identify a contact, send an HTTP POST request to the `/identify` endpoint wit
 │   └── test
 │       └── java/com/example/contact
 │           └── service
-│               └── ApplicatioTests.java
+│               └── ApplicationTests.java
 └── pom.xml
 ```
 
