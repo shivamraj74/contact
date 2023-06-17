@@ -118,3 +118,47 @@ The identification logic is implemented in the identifyContact method. Here's a 
 
 - The service uses the ContactRepository interface for interacting with the database. The repository interface extends the JpaRepository interface, which provides convenient methods for performing CRUD operations.
 - The service implementation uses the repository to query and manipulate contact data in the database.
+
+## To dockerize the Contact Identification Service and provide steps to run it, you can follow the instructions below:
+## Dockerizing the Contact Identification Service
+
+- Install Docker on your machine if you haven't already. Refer to the Docker documentation for installation instructions specific to your operating system.
+- Open a terminal or command prompt and navigate to the root directory of the Contact Identification Service project.
+- Create a Dockerfile in the project root directory with the following content:
+
+```Dockerfile
+# Use an official OpenJDK runtime as the base image
+FROM openjdk:8-jdk-alpine
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the compiled JAR file into the container
+COPY target/contact.jar .
+
+# Expose the port on which the application will run
+EXPOSE 8080
+
+# Specify the command to run when the container starts
+CMD ["java", "-jar", "contact.jar"]
+```
+- Save the Dockerfile.
+- Build a Docker image using the Dockerfile. Run the following command in the terminal or command prompt:
+```
+docker build -t contact .
+```
+This command will build an image named contact using the Dockerfile.
+
+Once the image is built, you can run a container based on the image using the following command:
+
+```
+docker run -p 8080:8080 contact
+```
+
+- This command starts a container based on the contact-identification-service image and maps port 8080 of the container to port 8080 of the host machine. Adjust the port mapping as per your requirements.
+- The Contact Identification Service should now be running inside a Docker container. You can access it by opening a web browser and navigating to http://localhost:8080.
+
+
+
+
+
