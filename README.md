@@ -36,11 +36,12 @@ The Contact Identification Service will start and listen on port 8080.
 
 To identify a contact, send an HTTP POST request to the `/identify` endpoint with the following JSON payload:
 
-```
+```json
 {
   "email": "contact@example.com",
   "phoneNumber": "1234567890"
-}```
+}
+```
 
 
 ```json
@@ -51,7 +52,8 @@ To identify a contact, send an HTTP POST request to the `/identify` endpoint wit
     "phoneNumbers": ["1234567890"],
     "secondaryContactIds": [2, 3]
   }
-}```
+}
+```
 
 - The primaryContactId field represents the ID of the primary contact.
 - The emails field contains an array of email addresses associated with the contact.
