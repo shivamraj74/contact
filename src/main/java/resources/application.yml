@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/contact
+    username: root
+    password: your_password
+  jpa:
+    hibernate:
